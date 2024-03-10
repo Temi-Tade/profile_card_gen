@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <title>Profile Card Generator</title>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Card_Gen</h1>
+        </header>
+
+        <section id="modal-bg">
+            <div id="modal"></div>
+        </section>
+
+        <section id="form-wrap">
+            <form autocomplete="off" spellcheck="false">
+                <div class="form-field">
+                    <label for="names">
+                        <input type="text" id="names" class="req" placeholder="Names">
+                    </label>
+                </div>
+                
+                <div class="form-field">
+                    <h4>Date of Birth</h4>
+                    <label for="dob">
+                        <input type="date" id="dob" class="req" required>
+                    </label>
+                </div>
+
+                <div class="form-field">
+                    <h4>Select Gender</h4>
+                    <label class="radio">
+                        <input type="radio" name="gndr" oninput="USER_INFO.gndr=this.value" value="male">
+                        Male
+                    </label>
+
+                    <label class="radio">
+                        <input type="radio" name="gndr" oninput="USER_INFO.gndr=this.value" value="female">
+                        Female
+                    </label>
+                </div>
+
+                <div class="form-field">
+                    <label for="mail">
+                        <input type="email" id="mail" class="req" placeholder="Email Address" required>
+                    </label>
+                </div>
+
+                <div class="form-field">
+                    <label for="phone">
+                        <input type="tel" id="phone" class="req" placeholder="Phone Number">
+                    </label>
+                </div>
+
+                <div class="form-field">
+                    <label for="skills">
+                        <input type="text" id="skills" class="req" placeholder="Skills">
+                    </label>
+                </div>
+
+                <div class="form-field">
+                    <label for="bio">
+                        <textarea id="bio" class="req" placeholder="Short Bio About Yourself" rows="5"></textarea>
+                    </label>
+                </div>
+
+                <div id="btn-wrap">
+                    <button type="submit" onclick="CREATE_CARD(event)">Generate Profile Card</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/form.js"></script>
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>

@@ -2,13 +2,14 @@ const VALIDATE_FORM = (e) => {
     e.preventDefault()
 
     INPUTS.forEach(val => {
-        USER_INFO[`${val.id}`] = val.value
+        USER_INFO[`${val.id}`] = val.value.trim()
     })
 
     if (Object.values(USER_INFO).includes("") || Object.values(USER_INFO).includes(undefined)) {
-        alert("All fields are required")
+        CREATE_MODAL("All fields are required")
+        return false
     } else {
-        //do somethingg
+        console.log(USER_INFO)
+        return true
     }
-    console.log(USER_INFO)
 }

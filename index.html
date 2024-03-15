@@ -13,7 +13,7 @@
         </header>
 
         <section id="modal-bg">
-            <div id="modal"></div>
+            <div id="modal">ss</div>
         </section>
 
         <section id="form-wrap">
@@ -34,12 +34,12 @@
                 <div class="form-field">
                     <h4>Select Gender</h4>
                     <label class="radio">
-                        <input type="radio" name="gndr" oninput="USER_INFO.gndr=this.value" value="male">
+                        <input type="radio" name="gndr" oninput="USER_INFO.gndr=this.value" value="M">
                         Male
                     </label>
 
                     <label class="radio">
-                        <input type="radio" name="gndr" oninput="USER_INFO.gndr=this.value" value="female">
+                        <input type="radio" name="gndr" oninput="USER_INFO.gndr=this.value" value="F">
                         Female
                     </label>
                 </div>
@@ -73,10 +73,36 @@
                 </div>
             </form>
         </section>
+
+        <section id="card-wrap">
+            <div id="card">
+                <section id="card-header">
+                    <div id="pic">
+                        <img src="" alt="">
+                        <p id="gndr">M</p>
+                    </div>
+                    <div id="info">
+                        <h1>${USER_INFO.names}</h1>
+                    </div>
+                </section>
+
+                <section id="contact">
+                    <div id="mail">${USER_INFO.mail}</div>
+                    <div id="phone">${USER_INFO.phone}</div>
+                </section>
+
+                <section id="skills-bio">
+                    <div id="skills">${USER_INFO.skills}</div>
+                    <div id="bio">${USER_INFO.bio}</div>
+                </section>
+            </div>
+        </section>
     </main>
 
     <script src="./assets/js/index.js"></script>
     <script src="./assets/js/form.js"></script>
     <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/html2canvas.min.js"></script>
+    <script src="./assets/js/profilecard.js"></script>
 </body>
 </html>

@@ -7,5 +7,6 @@ const USER_INFO = {
     mail: undefined,
     phone: undefined,
     skills: undefined,
-    bio: undefined
+    bio: undefined,
+    img: undefined
 }

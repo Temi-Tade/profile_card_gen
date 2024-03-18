@@ -23,6 +23,15 @@
                         <input type="text" id="names" class="req" placeholder="Names">
                     </label>
                 </div>
+
+                <div class="form-field">
+                    <h4>Photograph</h4>
+                    <label for="img">
+                        <!-- In future releases, there should be a feature for previewing images. -->
+                        <input type="file" id="img" accept="*.jpg, *.png" onchange="UPLOAD_IMG(this)">
+                        <small><em>If you do not upload any image, a default image would be used.</em></small>
+                    </label>
+                </div>
                 
                 <div class="form-field">
                     <h4>Date of Birth</h4>
@@ -69,12 +78,15 @@
                 </div>
 
                 <div id="btn-wrap">
-                    <button type="submit" onclick="CREATE_CARD(event)">Generate Profile Card</button>
+                    <button type="submit" onclick="CREATE_CARD(event, this)">Generate Profile Card</button>
                 </div>
             </form>
         </section>
 
         <section id="card-wrap">
+            <!-- In future releases, there should be a feature for previewing card async -->
+            <p style="text-align: center; padding: 1rem;">This is the preview for your profile card. Ensure make the necessary changes before you download it.</p>
+            
             <div id="card">
                 <section id="card-header">
                     <div id="pic">
@@ -83,7 +95,12 @@
                     </div>
                     <div id="info">
                         <h1>${USER_INFO.names}</h1>
+                        <p id="card-dob"><strong><em>${USER_INFO.dob}</em></strong></p>
                     </div>
+                </section>
+
+                <section id="card-skills">
+                    <div id="skills">${USER_INFO.skills}</div>
                 </section>
 
                 <section id="contact">
@@ -91,10 +108,14 @@
                     <div id="phone">${USER_INFO.phone}</div>
                 </section>
 
-                <section id="skills-bio">
-                    <div id="skills">${USER_INFO.skills}</div>
+                <section id="card-bio">
                     <div id="bio">${USER_INFO.bio}</div>
                 </section>
+            </div>
+
+            <div id="download-btn-wrap">
+                <button onclick="BACK_TO_FORM()">Make Changes</button>
+                <button onclick="new ProfileCard(USER_INFO).create()">Download Profile Card</button>
             </div>
         </section>
     </main>

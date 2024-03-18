@@ -9,6 +9,10 @@ class ProfileCard{
         this.bio = obj.bio
     }
 
+    //in future releases,
+    //there should be a feature requesting for jpg or png download
+    //embedding in social handles using their APIs
+    //sharable links
     create = () => {
         let element = document.querySelector("#card")
         var canvas = document.createElement('canvas');
@@ -18,11 +22,16 @@ class ProfileCard{
             var ctx = canvas.getContext('2d');
             ctx.drawImage(canvas, 0, 0);
             var dataURL = canvas.toDataURL();
-            console.log(dataURL);
 
             const img = document.createElement('img');
             img.src = dataURL;
-            document.body.appendChild(img);
+            let image_link = document.createElement('a')
+            let image_file = new Blob([dataURL], {type: "image/png"})
+            image_link.href = URL.createObjectURL(image_file)
+            image_link.download = `${USER_INFO.names}.png`
+            image_link.click()
+            URL.revokeObjectURL(image_link.href)
+            document.querySelector("#card-wrap").append(img)
         });
     }
 }

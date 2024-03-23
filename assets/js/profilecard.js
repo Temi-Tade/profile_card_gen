@@ -1,7 +1,6 @@
 class ProfileCard{
     constructor(obj){
         this.name = obj.name
-        this.dob = obj.dob
         this.gndr = obj.gndr
         this.mail = obj.mail
         this.phone = obj.phone
@@ -21,17 +20,14 @@ class ProfileCard{
         html2canvas(element, {}).then(function (canvas) {
             var ctx = canvas.getContext('2d');
             ctx.drawImage(canvas, 0, 0);
-            var dataURL = canvas.toDataURL();
-
-            const img = document.createElement('img');
-            img.src = dataURL;
-            let image_link = document.createElement('a')
-            let image_file = new Blob([dataURL], {type: "image/png"})
-            image_link.href = URL.createObjectURL(image_file)
-            image_link.download = `${USER_INFO.names}.png`
-            image_link.click()
-            URL.revokeObjectURL(image_link.href)
-            document.querySelector("#card-wrap").append(img)
+            ctx.imageSmoothingQuality = "high"
+            let dataURL = canvas.toDataURL();
+            let img_link = document.createElement("a")
+            img_link.href = dataURL
+            img_link.download = `${USER_INFO.names}.png`
+            img_link.click()
+            img_link.remove()
+            CREATE_MODAL("Your profile card should start downloading soon...") 
         });
     }
 }

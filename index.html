@@ -4,19 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
     <title>Profile Card Generator</title>
 </head>
 <body>
     <main>
         <header>
-            <h1>Card_Gen</h1>
+            <h1>Card_Gen <i class="fa-solid fa-address-card"></i></h1>
         </header>
 
         <section id="modal-bg">
-            <div id="modal">ss</div>
+            <div id="modal"></div>
         </section>
 
         <section id="form-wrap">
+            <div id="info">
+                <h2>Hello there!</h2>
+                <h3>Let me help you generate a simple card showcasing your profile!</h3>
+                <div>
+                    <p>Welcome to Card_Gen, a simple tool for generating profile cards.</p>
+                    <em>New features would be rolled out in future releases. Anticipate!</em>
+                </div>
+                <em>Fill in the form below with your details, preview your profile card and download it!</em>
+            </div>
+
             <form autocomplete="off" spellcheck="false">
                 <div class="form-field">
                     <label for="names">
@@ -28,15 +41,9 @@
                     <h4>Photograph</h4>
                     <label for="img">
                         <!-- In future releases, there should be a feature for previewing images. -->
+                        <!-- Also, users should be able to style their cards -->
                         <input type="file" id="img" accept="*.jpg, *.png" onchange="UPLOAD_IMG(this)">
                         <small><em>If you do not upload any image, a default image would be used.</em></small>
-                    </label>
-                </div>
-                
-                <div class="form-field">
-                    <h4>Date of Birth</h4>
-                    <label for="dob">
-                        <input type="date" id="dob" class="req" required>
                     </label>
                 </div>
 
@@ -73,12 +80,12 @@
 
                 <div class="form-field">
                     <label for="bio">
-                        <textarea id="bio" class="req" placeholder="Short Bio About Yourself" rows="5"></textarea>
+                        <textarea id="bio" class="req" placeholder="Something you want people to know about you..." rows="5"></textarea>
                     </label>
                 </div>
 
                 <div id="btn-wrap">
-                    <button type="submit" onclick="CREATE_CARD(event, this)">Generate Profile Card</button>
+                    <button type="submit" onclick="CREATE_CARD(event, this)">Generate Profile Card <i class="fa-solid fa-user"></i></button>
                 </div>
             </form>
         </section>
@@ -95,12 +102,8 @@
                     </div>
                     <div id="info">
                         <h1>${USER_INFO.names}</h1>
-                        <p id="card-dob"><strong><em>${USER_INFO.dob}</em></strong></p>
+                        <p id="card-skills"><em>${USER_INFO.skills}</em></p>
                     </div>
-                </section>
-
-                <section id="card-skills">
-                    <div id="skills">${USER_INFO.skills}</div>
                 </section>
 
                 <section id="contact">
@@ -114,10 +117,18 @@
             </div>
 
             <div id="download-btn-wrap">
-                <button onclick="BACK_TO_FORM()">Make Changes</button>
-                <button onclick="new ProfileCard(USER_INFO).create()">Download Profile Card</button>
+                <button onclick="BACK_TO_FORM()"><i class="fa-solid fa-arrow-left"></i>Make Changes</button>
+                <button onclick="new ProfileCard(USER_INFO).create()">Download Profile Card <i class="fa-solid fa-download"></i></button>
             </div>
         </section>
+
+        <footer>
+            <p>Created by Temiloluwa Akintade.</p>
+            <small>
+                <a href="mailto:devmode006@gmail.com">Bug Report</a>
+                <a href="https://github.com/Temi-Tade/">My GitHub Profile</a>
+            </small>
+        </footer>
     </main>
 
     <script src="./assets/js/index.js"></script>

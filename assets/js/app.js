@@ -29,28 +29,32 @@ const CREATE_CARD = (e, btn) => {
         document.querySelector("#card").innerHTML = `
                 <section id="card-header">
                     <div id="pic">
+                        <span></span>
                         <img src=${USER_INFO.img} alt="">
                         <p id="gndr">${USER_INFO.gndr}</p>
                     </div>
                     <div id="info">
                         <h1>${USER_INFO.names}</h1>
-                        <p id="card-dob"><strong><em>${USER_INFO.dob}</em></strong></p>
+                        <p id="skills"><small><em>${USER_INFO.skills}</em></small></p>
                     </div>
                 </section>
 
-                <section id="card-skills">
-                    <div id="skills">${USER_INFO.skills}</div>
-                </section>
-
                 <section id="contact">
-                    <div id="mail">${USER_INFO.mail}</div>
-                    <div id="phone">${USER_INFO.phone}</div>
+                    <div id="mail"><i class="fa-solid fa-message"></i> ${USER_INFO.mail}</div>
+                    <div id="phone"><i class="fa-solid fa-phone"></i> ${USER_INFO.phone}</div>
                 </section>
 
                 <section id="card-bio">
-                    <div id="bio">${USER_INFO.bio}</div>
+                    <div id="bio"><small><em>${USER_INFO.bio}</em></small></div>
                 </section>
         `
+        document.querySelector("#card").onmouseover = (e) => {
+            document.querySelector("#card").style.transform = `skew(${e.offsetX/25}deg, ${e.offsetY/25}deg)`
+        }
+        document.querySelector("#card").onmouseout = () => {
+            document.querySelector("#card").style.transform = `skew(0)`
+        }
+
     } else {
         return
     }
